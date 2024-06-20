@@ -5,7 +5,7 @@ import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
-public class ResponseMsn {
+public class ResponseDTO {
     private int statusCode;
-    private Countries countries;
+    private Object object;
 }

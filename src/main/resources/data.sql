@@ -1,5 +1,19 @@
-DROP TABLE IF EXISTS countries;
+DROP TABLE IF EXISTS users;
 
+CREATE TABLE IF NOT EXISTS users (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    role VARCHAR(100) NOT NULL,
+    status BOOLEAN DEFAULT TRUE
+);
+
+INSERT INTO users (name, last_name, email, password, role, status) VALUES
+('David', 'Alfonso', 'jdavid.alfonso18@gmail.com','123456','admin',true);
+
+DROP TABLE IF EXISTS countries;
 
 CREATE TABLE IF NOT EXISTS countries (
     id BIGINT AUTO_INCREMENT PRIMARY KEY,

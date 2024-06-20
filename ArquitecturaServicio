@@ -1,0 +1,41 @@
+paises/
+├── src/
+│   ├── main/
+│   │   ├── java/
+│   │   │   └── com/
+│   │   │       └── prueb/
+│   │   │           └── tecnica/
+│   │   │               └── paises/
+│   │   │                   ├── PaisesApplication.java
+│   │   │                   ├── controller/
+│   │   │                   │   └── CountriesController.java
+│   │   │                   ├── exception/
+│   │   │                   │   └── ResourceNotFoundException.java
+│   │   │                   ├── model/
+│   │   │                   │   ├── Countries.java
+│   │   │                   │   ├── ResponseMsn.java
+│   │   │                   │   └── ResponseMsnError.java
+│   │   │                   ├── repository/
+│   │   │                   │   └── CountriesRepository.java
+│   │   │                   └── service/
+│   │   │                       ├── CountriesService.java
+│   │   │                       └── impl/
+│   │   │                           └── CountriesServiceImpl.java
+│   │   └── resources/
+│   │       ├── application.properties
+│   │       └── data.sql
+│   └── test/
+│       ├── java/
+│       │   └── com/
+│       │       └── prueb/
+│       │           └── tecnica/
+│       │               └── paises/
+│       │                   ├── CountriesApplicationTests.java
+│       │                   ├── controller/
+│       │                   │   └── CountriesControllerTest.java
+│       │                   ├── repository/
+│       │                   │   └── CountriesRepositoryTest.java
+│       │                   └── service/
+│       │                       └── CountriesServiceTest.java
+│       
+└── pom.xml

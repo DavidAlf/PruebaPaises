@@ -12,10 +12,13 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.prueb.tecnica.paises.model.Countries;
-import com.prueb.tecnica.paises.model.ResponseMsn;
-import com.prueb.tecnica.paises.model.ResponseMsnError;
+import com.prueb.tecnica.paises.model.ResponseDTO;
+import com.prueb.tecnica.paises.model.ResponseErrorDTO;
 import com.prueb.tecnica.paises.service.CountriesService;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @RestController
 @RequestMapping("/api/countries")
 public class CountriesController {
@@ -30,17 +33,19 @@ public class CountriesController {
     }
 
     @GetMapping("/{country}")
-    public ResponseEntity<ResponseMsn> getDataByCountry(@PathVariable("country") String country) {
+    public ResponseEntity<ResponseDTO> getDataByCountry(@PathVariable("country") String country) {
         try {
-            ResponseMsn response = new ResponseMsn(HttpStatus.OK.value(),
+            log.info("Inicio de getDataByCountry");
+            ResponseDTO responseDTO = new ResponseDTO(HttpStatus.OK.value(),
                     countriesService.getDataByCountry(country.toUpperCase()).get());
 
-            return ResponseEntity.ok(response);
+            return ResponseEntity.ok(responseDTO);
         } catch (Exception e) {
-            ResponseMsnError responseError = new ResponseMsnError(HttpStatus.NOT_FOUND.value(),
+            log.error("Error getDataByCountry " + e.getMessage());
+            ResponseErrorDTO responseErrorDTO = new ResponseErrorDTO(HttpStatus.NOT_FOUND.value(),
                     new Countries(), "No se encuentra el pais");
 
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseError);
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(responseErrorDTO);
         }
 
     }
