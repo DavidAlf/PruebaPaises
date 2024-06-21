@@ -18,6 +18,7 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import com.prueb.tecnica.paises.security.jwt.JwtFilter;
 
+@SuppressWarnings("deprecation")
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {
@@ -30,6 +31,7 @@ public class SecurityConfig {
         return NoOpPasswordEncoder.getInstance();
     }
 
+    @SuppressWarnings("removal")
     protected SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) throws Exception {
         System.out.println("xxx");
         httpSecurity.cors().configurationSource(request -> new CorsConfiguration().applyPermitDefaultValues())
